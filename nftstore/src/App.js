@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import './styles/App.css';
+import Wallet from "./components/Wallet";
+const OPENSEA_LINK = '';
+const TOTAL_MINT_COUNT = 50;
 
-function App() {
+const App = () => {
+ 
+  /*
+  * Added a conditional render! We don't want to show Connect to Wallet if we're already connected :).
+  */
   return (
-    <div>
-      <h1 class="text-3xl font-bold underline">
-      SoccerBeats. Let's Dance!
-      </h1>
-    </div>
+   <Wallet />
   );
-}
+};
 
 export default App;
