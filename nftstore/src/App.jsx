@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, NavLink } from "react-router-dom";
 
 import AppRouting from './app-routing';
-import logo from './assets/logo.png';
+import logo from './assets/logobrand.png';
 
 
 import './index.css';
@@ -41,12 +41,12 @@ class App extends React.Component {
             <div className="navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">Avatars</NavLink>
+                  <NavLink className="nav-link" to="/">Accessories</NavLink>
                 </li>
               </ul>
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/accessories">Accessories</NavLink>
+                  <NavLink className="nav-link" to="/myassets">My Assets</NavLink>
                 </li>
               </ul>
 

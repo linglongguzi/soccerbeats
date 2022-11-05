@@ -1,5 +1,5 @@
 import * as React from 'react';
-import clothImg from '../static/model4.png';
+import clothImg from '../assets/model4.png';
 
 const ItemCard = ()=>{
     return(
