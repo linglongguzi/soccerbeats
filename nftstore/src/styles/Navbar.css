@@ -1,0 +1,120 @@
+.Navbar {
+    background-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    text-align: center;
+    padding: 0 100px;
+    z-index: 1000;
+  }
+  .Navbar-logo {
+    color: rgba(249, 249, 249);
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .Navbar-items {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    padding: 0 0 0 40px;
+  }
+  .Navbar-item {
+    padding: 0 15px;
+    margin: auto;
+  }
+  .Navbar-links {
+    display: flex;
+    flex-direction: column;
+    color: rgba(249, 249, 249);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .icon {
+    font-size: 20px;
+  }
+  .navbar-heart {
+    font-size: 22px !important;
+  }
+  .Navbar-links div {
+    font-size: 14px;
+    padding-top: 8px;
+    color: #bfbfbf;
+  }
+  .flex-grow {
+    display: flex;
+    flex-grow: 1;
+  }
+  .icon-menu,
+  .icon-cart {
+    display: none;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 20px 0 20px;
+    cursor: pointer;
+  }
+  @media (max-width: 1245px) {
+    .Navbar {
+      padding: 0 50px;
+    }
+  }
+  @media (max-width: 850px) {
+    .Navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 0;
+      height: 12vh;
+    }
+    .Navbar-logo {
+      flex: 2;
+      text-align: center;
+    }
+    .Navbar-items-left,
+    .Navbar-items-right {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      z-index: 99;
+      top: 12vh;
+      width: 100%;
+      background-color: #000;
+    }
+    .Navbar-items-left {
+      top: 12vh;
+      height: 44vh;
+    }
+    .Navbar-items-right {
+      top: 56vh;
+      height: 44vh;
+    }
+    .Navbar-items-right:last-child {
+      display: none;
+    }
+    .Navbar-item {
+      padding: 0;
+    }
+    .Navbar-links {
+      font-size: 20px;
+    }
+    .icon-menu,
+    .icon-cart {
+      display: inline-block;
+    }
+    .hidden {
+      display: none;
+    }
+    .opac {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .flex-grow {
+      display: none;
+    }
+  }
+  

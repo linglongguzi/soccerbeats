@@ -1,20 +1,67 @@
-import React, { useEffect, useState } from "react";
-import './styles/App.css';
-import Wallet from "./components/Wallet";
-import { AccessoryPage } from "./components/AccessoryPage";
-const OPENSEA_LINK = '';
-const TOTAL_MINT_COUNT = 50;
 
-const App = () => {
- 
-  /*
-  * Added a conditional render! We don't want to show Connect to Wallet if we're already connected :).
-  */
-  return (
-   <AccessoryPage />
+import React from 'react';
+import { Link, NavLink } from "react-router-dom";
 
-   
-  );
-};
+import AppRouting from './app-routing';
+import logo from './assets/logo.png';
+
+
+import './index.css';
+
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentDidMount() {
+    const navMain = document.getElementById('navbarCollapse');
+    if (navMain) {
+      navMain.onclick = function onClick() {
+        if (navMain) {
+          navMain.classList.remove("show");
+        }
+      }
+    }
+  }
+
+  render() {
+
+    return (
+      <div >
+        <header className="navbar navbar-expand-md navbar-dark nga-navbar">
+          <nav className="container" aria-label="Main navigation">
+            <NavLink className="navbar-brand" to="/">
+              <img src={logo} width="125" height="50" alt="Logo" />
+            </NavLink>
+
+            <div className="navbar-collapse" id="navbarCollapse">
+              <ul className="navbar-nav ">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/">Avatars</NavLink>
+                </li>
+              </ul>
+              <ul className="navbar-nav me-auto">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/accessories">Accessories</NavLink>
+                </li>
+              </ul>
+
+              <button type="button" className="btn"><i
+                className=""></i>Connect Wallet</button>
+            </div>
+          </nav>
+        </header>
+        <main>
+          <AppRouting />
+        </main>
+      </div>
+    )
+  }
+
+}
 
 export default App;
