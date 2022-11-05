@@ -9,6 +9,7 @@ import logo from './assets/logobrand.png';
 import './index.css';
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import Wallet from './components/Wallet';
 
 class App extends React.Component {
 
@@ -51,9 +52,7 @@ class App extends React.Component {
                       (isActive ? {color: 'blue'} : {color: 'black'})}>My Assets</NavLink>
                 </li>
               </ul>
-
-              <button type="button" className="btn"><i
-                className=""></i>Connect Wallet</button>
+              <Wallet></Wallet>
             </div>
           </nav>
         </header>

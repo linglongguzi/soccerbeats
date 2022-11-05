@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import '../styles/App.css';
-const OPENSEA_LINK = '';
-const TOTAL_MINT_COUNT = 50;
+import connectWalletImg from '../assets/connectWallet.png';
+import styles from './Wallet.css';
 
 const Wallet = () => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -56,10 +55,29 @@ const Wallet = () => {
 
   // Render Methods
   const renderNotConnectedContainer = () => (
-    <button onClick={connectWallet} className="cta-button connect-wallet-button">
-      Connect to Wallet
+    <button onClick={connectWallet} >
+      Connect Wallet
     </button>
   );
+  
+  const renderConnectedContainer = () =>(
+    <div className={styles.walletContainer}>
+      <img className={styles.image} src={connectWalletImg} alt="wallet connected" />
+      <p className={styles.walletAddress}>{getShortAddress(currentAccount)}</p>
+    </div>
+  );
+
+  const getShortAddress = (address) => (
+    `0x${getFirstNDigits(address, 3)}...${getLastNDigits(address,4)}`
+  );
+
+  const getFirstNDigits = (address, n) =>{
+    console.log(address.substring(n));
+    return address.substring(n);
+  }
+  const getLastNDigits = (address,n) =>{
+    return address.substring(-n);
+  }
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -69,23 +87,13 @@ const Wallet = () => {
   * Added a conditional render! We don't want to show Connect to Wallet if we're already connected :).
   */
   return (
-    <div className="App">
-      <div className="container">
-        <div className="header-container">
-          <p className="header gradient-text">My NFT Collection</p>
-          <p className="sub-text">
-            Each unique. Each beautiful. Discover your NFT today.
-          </p>
+      <div>
           {currentAccount === "" ? (
             renderNotConnectedContainer()
           ) : (
-            <button className="cta-button connect-wallet-button">
-              10 ApeCoin
-            </button>
+            renderConnectedContainer()
           )}
         </div>
-      </div>
-    </div>
   );
 };
 
