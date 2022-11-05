@@ -41,12 +41,14 @@ class App extends React.Component {
             <div className="navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">Accessories</NavLink>
+                  <NavLink className="nav-link" to="/" style={({ isActive }) => 
+                      (isActive ? {color: 'blue'} : {color: 'black'})}>Accessories</NavLink>
                 </li>
               </ul>
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/myassets">My Assets</NavLink>
+                  <NavLink className="nav-link" to="/myassets" style={({ isActive }) => 
+                      (isActive ? {color: 'blue'} : {color: 'black'})}>My Assets</NavLink>
                 </li>
               </ul>
 

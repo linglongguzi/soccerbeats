@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import ItemCard from '../../components/ItemCard';
+import clothImg from '../../assets/model4.png';
+import girlImg from '../../assets/model3.png';
 
 import './index.css';
+import AssetCard from '../../components/AssetCard';
 
-class Home extends React.Component {
+class MyAssets extends React.Component {
 
   constructor(props) {
     super(props)
@@ -12,18 +16,14 @@ class Home extends React.Component {
   render() {
     return (
       <div className="container py-5">
-        <div className="row">
-        </div>
-        <hr />
-        <div className="row mb-2">
-          <div className="col-md-12 text-center mb-4">
-            <h3 className="h5">My Asset<i className="fas fa-list ms-2"></i></h3>
+          <div class="grid grid-cols-4 gap-6 bg-white">
+            <AssetCard img={girlImg} isAvatar={true}></AssetCard>
+            <AssetCard img={clothImg}></AssetCard>
           </div>
-        </div>
       </div>
     )
   }
 
 }
 
-export default Home; 
+export default MyAssets; 
