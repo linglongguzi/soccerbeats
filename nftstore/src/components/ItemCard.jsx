@@ -14,9 +14,9 @@ const ItemCard = ({img})=>{
 
 const PriceCheckoutButton = () => {
     return(
-        <div>
-            <div>0.01ETH</div>
-            <button>Buy</button>
+        <div class="container bg-blue-200 rounded-full py-1">
+            <span class="inline-block px-4"> 0.01ETH </span>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Buy</button>
         </div>
     );
 }
