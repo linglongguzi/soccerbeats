@@ -23,8 +23,8 @@ const AssetCard = ({img, isAvatar=false, level=2})=>{
 const PlayOrCombo = () => {
   return (
     <div class="flex justify-evenly">
-        <button class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-2 rounded-full">Play now</button>
-        <button class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-2 rounded-full">Combo</button>
+        <button class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full">Play now</button>
+        <button class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full">Combo</button>
     </div>
   );
 }
