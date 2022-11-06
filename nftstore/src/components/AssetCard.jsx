@@ -1,5 +1,4 @@
 import * as React from 'react';
-import clothImg from '../assets/model4.png';
 
 const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
     let bottomSection;

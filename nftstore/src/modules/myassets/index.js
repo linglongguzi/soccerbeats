@@ -2,7 +2,6 @@ import React, {useState , useEffect, Suspense} from 'react';
 import clothImg from '../../assets/model4.png';
 import girlImg from '../../assets/model3.png';
 import comboImg from '../../assets/girlWithJersey.jpeg';
-import AssetCard from '../../components/AssetCard';
 
 import './index.css';
 import AssetCard from '../../components/AssetCard';
