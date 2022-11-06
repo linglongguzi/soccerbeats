@@ -71,7 +71,11 @@ const PriceCheckoutButton = () => {
         <div class="container bg-purple-100 rounded-full py-1 flex items-center justify-between">
             <div class="inline-block px-9"> 
             <span class="text-xl">0.01</span> ETH </div>
-            <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full buy">Buy</button>
+            <button 
+            class="bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full buy"
+                onclick = {() => {alert("buy")}}>
+                Buy
+                </button>
         </div>
     );
 }

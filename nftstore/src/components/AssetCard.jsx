@@ -23,12 +23,12 @@ const AssetCard = ({img, isAvatar=false, level=2})=>{
 const PlayNowHandler = () => {
     console.log("PlayNowHandler running")
     const requestOptions = {
-        method: 'POST',
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wearJersey: true })
     };
    
-    const unityServer = "http://localhost:8000";
+    const unityServer = "http://localhost:8888/avatar?avatar=5&cloth=0";
    
     fetch(unityServer, requestOptions)
     .then(response => response.json())
