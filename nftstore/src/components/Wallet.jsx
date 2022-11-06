@@ -60,11 +60,9 @@ const Wallet = () => {
   );
   
   const renderConnectedContainer = () =>(
-    <div className={styles.walletContainer}>
-      <button class="bg-gradient-to-r from-pink-200 via-pink-400 to-pink-600 text-white py-2 px-4 rounded-full inline-flex items-center"> 
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
-        <span>{getShortAddress(currentAccount)}</span>
-      </button>
+    <div class="walletContainer">
+      <img class="btn-bg" src={connectWalletImg} alt="wallet connected" />
+      <p class="walletAddress">{getShortAddress(currentAccount)}</p>
     </div>
   );
 
