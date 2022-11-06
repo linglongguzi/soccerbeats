@@ -27,12 +27,12 @@ function MyAssets () {
   }
 
   const renderWalletNotConnected = () => (
-    <div>Connect wallet to see your assets</div>
+    <div class="mt-6">Connect wallet to see your assets</div>
   );
 
   const renderWalletConnected = ()=> (
       <div className="container py-5">
-          <div class="grid grid-cols-4 gap-6 bg-white">
+          <div class="grid grid-cols-4 gap-6">
             <AssetCard img={girlImg} isAvatar={true}></AssetCard>
             <AssetCard img={clothImg}></AssetCard>
           </div>

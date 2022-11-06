@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
-import styles from '../styles/ItemCard.css';
+import '../styles/ItemCard.css';
 
 const ItemCard = ({img})=>{
     const [address, setAddress] = useState("");

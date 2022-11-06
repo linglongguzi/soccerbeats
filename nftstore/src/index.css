@@ -32,6 +32,9 @@ code {
 
 main {
   background: #F2F2F2;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
 }
 
 

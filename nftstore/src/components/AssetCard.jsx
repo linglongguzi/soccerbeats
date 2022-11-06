@@ -11,10 +11,10 @@ const AssetCard = ({img, isAvatar=false, level=2})=>{
     }
 
     return(
-        <div class="container mx-auto bg-gray-200 rounded-xl shadow border p-4 m-2">
-            <div class="text-grey-200 text-center mb-8 bg-slate-300 rounded-full">#231</div>
+        <div class="container mx-auto bg-white rounded-xl shadow border p-4 m-2">
+            <div class="text-grey-200 text-center mb-8 bg-slate-300 rounded-full code">#231</div>
             <div class="img" style={{height: "300px", display: "table-cell", verticalAlign: "middle"}}><img src={img} alt="jersey" class="bg-transparent"></img></div>
-            <div class="my-4 text-center">Level {level}</div>
+            <div class="my-4 text-center desc">Level {level}</div>
             {bottomSection}
         </div>
     );
@@ -40,12 +40,12 @@ const PlayOrCombo = () => {
   return (
     <div class="flex justify-evenly">
         <button 
-            class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full"
+            class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full play-btn"
             onClick={()=>PlayNowHandler()}>
             Play now
         </button>
         <button 
-            class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full"
+            class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full mint-btn"
             onClick={()=>alert("combo finished, starting")}>
             Combo
         </button>
