@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/nfts": {
+      "name": "/nfts",
+      "lambdaFunction": "nftFunc",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
