@@ -10,7 +10,6 @@ import './index.css';
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Wallet from './components/Wallet';
-import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 class App extends React.Component {
 
@@ -33,7 +32,6 @@ class App extends React.Component {
   render() {
 
     return (
-      <ThirdwebProvider desiredChainId={ChainId.Goerli}>
       <div >
         <header className="navbar navbar-expand-md navbar-dark nga-navbar">
           <nav className="container" aria-label="Main navigation">
@@ -59,7 +57,6 @@ class App extends React.Component {
           <AppRouting />
         </main>
       </div>
-      </ThirdwebProvider>
     )
   }
 

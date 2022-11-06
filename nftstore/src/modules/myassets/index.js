@@ -5,6 +5,7 @@ import comboImg from '../../assets/girlWithJersey.jpeg';
 import AssetCard from '../../components/AssetCard';
 
 import './index.css';
+import AssetCard from '../../components/AssetCard';
 
 function MyAssets () {
   const [combo, setCombo] = useState(false)
@@ -56,4 +57,5 @@ function MyAssets () {
     </Suspense>
   )
 }
-export default MyAssets;
+
+export default MyAssets; 

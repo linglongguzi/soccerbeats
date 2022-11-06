@@ -12,7 +12,10 @@ const Wallet = () => {
     if (!ethereum) {
       console.log("Make sure you have metamask!");
       return;
+    } else {
+      console.log("We have the ethereum object", ethereum);
     }
+
     const accounts = await ethereum.request({ method: 'eth_accounts' });
 
     if (accounts.length !== 0) {
