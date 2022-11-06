@@ -16,51 +16,50 @@ const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
         const addOnFashionContract = '0xa71a5270459ff9e18d130a9497b6211304375f3d';
         const avatarContract = '0x6ad03857DA61a9cb62DF8696ab66F82Df5F98B27';
         const comboContract = '0x25430eef190fa85876e31fdfea823b69e378ebad';
-        const nftId = '1';
         const count = 1;
         const to = address;
         const setId = 10000000;
         const options = {value: ethers.utils.parseEther("0.00001")};
-        mintParamsBuilder.use(addOnFashionContract, nftId, count,0);
-        mintParamsBuilder.use(avatarContract, nftId, count, 0);
+        mintParamsBuilder.buy(addOnFashionContract, 1, count,setId);
+        mintParamsBuilder.use(avatarContract, 9, count, 0);
         
         let { ingredients, itemsToBuy } = mintParamsBuilder.build();
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum)
         const signer = provider.getSigner(address);
         const contract = new ethers.Contract(COMBO_PROXY_ADDRESS, ABI.IComboProxy, signer)
-        const metaMesh = 
-        {
-          "code": {
-            "code": 0,
-            "message": "OK"
-          },
-          "data": {
-            "name": "",
-            "image": "https://media.1combo.io/soccerbeat/combo.jpg",
-            "external_url": "",
-            "description": "",
-            "background_color": "",
-            "animation_url": "",
-            "youtube_url": "",
-            "attributes": [
-              {
-                "trait_type": "SoccerBeat Add-ons",
-                "value": "Red Coat"
-              }
-            ]
-          },
-          "info": {
-            "hash": "f7a95e1ebeee239feff1a9fa8ec859c91973daa2b1b638db043597f94c3d9ee1",  // 这就是metaHash
-            "preview": "https://media.1combo.io/soccerbeat/combo.jpg"
-          }
-        }
+        const metaHash = "0x20f62ef0f577ee0c80be168beb60e3485bb9722874e5bf8718c9ae7eb27464f7";
+        // {
+        //   "code": {
+        //     "code": 0,
+        //     "message": "OK"
+        //   },
+        //   "data": {
+        //     "name": "",
+        //     "image": "https://media.1combo.io/soccerbeat/combo.jpg",
+        //     "external_url": "",
+        //     "description": "",
+        //     "background_color": "",
+        //     "animation_url": "",
+        //     "youtube_url": "",
+        //     "attributes": [
+        //       {
+        //         "trait_type": "SoccerBeat Add-ons",
+        //         "value": "Red Coat"
+        //       }
+        //     ]
+        //   },
+        //   "info": {
+        //     "hash": "0x20f62ef0f577ee0c80be168beb60e3485bb9722874e5bf8718c9ae7eb27464f7",  //metaHash
+        //     "preview": "https://media.1combo.io/soccerbeat/combo.jpg"
+        //   }
+        // }
         
          const transactionScript = await contract.mint(
             comboContract,
             to,
             true,   // true - pay in ether, false - pay in WETH
-            metaMesh,
+            metaHash,
             ingredients,
             itemsToBuy
         );
