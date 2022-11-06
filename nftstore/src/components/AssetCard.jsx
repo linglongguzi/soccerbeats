@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-const MintParamsBuilder = require('../combo/src/params-builders');
-const { ABI, COMBO_PROXY_ADDRESS, COLLECTION_PROXY_ADDRESS } = require('../combo/src/client');
-
+// const MintParamsBuilder = require('../combo/src/params-builders');
+// const { ABI, COMBO_PROXY_ADDRESS} = require('../combo/src/client');
+import { MintParamsBuilder } from '../combo/src/params-builders';
+import { ABI, COMBO_PROXY_ADDRESS } from '../combo/src/client';
 
 const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
     const [address, setAddress] = useState("");

@@ -1,15 +1,17 @@
 import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 import '../styles/ItemCard.css';
-const pramrasBuilder = require('../combo/src/params-builders');
-const client =require('../combo/src/client');
+// const pramrasBuilder = require('../combo/src/params-builders');
+// const client =require('../combo/src/client');
+import { MintAddOnBuilder } from '../combo/src/params-builders';
+import { COLLECTION_PROXY_ADDRESS, ABI } from '../combo/src/client';
 
 const ItemCard = ({img})=>{
     const [address, setAddress] = useState("");
 
     const buyHandler = async () => {
         console.log("buyHandler triggered")
-        let mintAddOnBuilder = new pramrasBuilder.MintAddOnBuilder();
+        let mintAddOnBuilder = new MintAddOnBuilder();
     
         // Only 'buy' is required
         const fashionContract = '0xa71a5270459ff9e18d130a9497b6211304375f3d';
@@ -24,7 +26,7 @@ const ItemCard = ({img})=>{
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum)
         const signer = provider.getSigner(address);
-        const contract = new ethers.Contract(client.COLLECTION_PROXY_ADDRESS, client.ABI.ICollectionProxy, signer)
+        const contract = new ethers.Contract(COLLECTION_PROXY_ADDRESS, ABI.ICollectionProxy, signer)
         
          const transactionScript = await contract.mint(
             to,

@@ -31,7 +31,7 @@ const BN = require('bn.js');
  *      );
  *  ==================================
  */
-function MintParamsBuilder() {
+export function MintParamsBuilder() {
     this._frozen = false;
     this._ingredients = [];
     this._itemsToBuy = [];
@@ -201,7 +201,7 @@ MintParamsBuilder.prototype.build = function() {
  *      );
  *  ==================================
  */
-function ComboRuleBuilder() {
+export function ComboRuleBuilder() {
     this._collectionRules = [];
     this._setRules = [];
     this._limitRules = [];
@@ -350,7 +350,7 @@ ComboRuleBuilder.prototype.build = function() {
  *      );
  *  ==================================
  */
-function MintAddOnBuilder() {
+export function MintAddOnBuilder() {
     this._frozen = false;
     this._itemsToBuy = [];
 }
@@ -431,8 +431,8 @@ MintAddOnBuilder.prototype.build = function() {
     return itemsToBuy;
 }
 
-module.exports = {
-    MintParamsBuilder,
-    MintAddOnBuilder,
-    ComboRuleBuilder,
-};
+// module.exports = {
+//     MintParamsBuilder,
+//     MintAddOnBuilder,
+//     ComboRuleBuilder,
+// };

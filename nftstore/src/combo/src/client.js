@@ -2,11 +2,11 @@
 // const got = require("got");
 const axios = require("axios");
 
-const ParamBuilders = require("./params-builders.js");
-const ABI = require("../abi/ABI.json");
-const COMBO_PROXY_ADDRESS = "0x3A7c3955573CdF0Fb6FcAD8DD5115Eb1B81Ca4D8";
-const COMBO_FACTORY_ADDRESS = "0x29297388fd1f74a30C71a224e01a298efcEd1F56";
-const COLLECTION_PROXY_ADDRESS = "0xc14202310c1A601004b3243a54568726D31Ea5ed";
+export const ParamBuilders = require("./params-builders.js");
+export const ABI = require("../abi/ABI.json");
+export const COMBO_PROXY_ADDRESS = "0x3A7c3955573CdF0Fb6FcAD8DD5115Eb1B81Ca4D8";
+export const COMBO_FACTORY_ADDRESS = "0x29297388fd1f74a30C71a224e01a298efcEd1F56";
+export const COLLECTION_PROXY_ADDRESS = "0xc14202310c1A601004b3243a54568726D31Ea5ed";
 
 const ENDPOINT_GOERLI = "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
 
@@ -24,7 +24,7 @@ function encode(queryParams) {
     }
 }
 
-var Client = function() {
+export var Client = function() {
     // this.web3 = new Web3(ENDPOINT_GOERLI);
     // this.comboProxy = new this.web3.eth.Contract(ABI.IComboProxy, COMBO_PROXY_ADDRESS);
     // this.collectionProxy = new this.web3.eth.Contract(ABI.ICollectionProxy, COLLECTION_PROXY_ADDRESS);
@@ -131,10 +131,10 @@ Client.prototype.getOwnedComboByAccount = async function(user, pageSize, continu
     }
 };
 
-module.exports = {
-    Client,
-    ParamBuilders,
-    ABI,
-    COMBO_PROXY_ADDRESS,
-    COLLECTION_PROXY_ADDRESS,
-};
+// module.exports = {
+//     Client,
+//     ParamBuilders,
+//     ABI,
+//     COMBO_PROXY_ADDRESS,
+//     COLLECTION_PROXY_ADDRESS,
+// };
