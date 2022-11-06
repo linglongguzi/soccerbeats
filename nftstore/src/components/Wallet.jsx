@@ -62,8 +62,7 @@ const Wallet = () => {
   
   const renderConnectedContainer = () =>(
     <div className={styles.walletContainer}>
-      <img width="125" height="36" src={connectWalletImg} alt="wallet connected" />
-      <p className={styles.walletAddress}>{getShortAddress(currentAccount)}</p>
+      <button class="bg-gradient-to-r from-pink-200 via-pink-400 to-pink-600 text-white py-2 px-4 rounded-full" className={styles.walletAddress}>{getShortAddress(currentAccount)}</button>
     </div>
   );
 
