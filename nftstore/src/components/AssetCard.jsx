@@ -22,11 +22,9 @@ const PlayNowHandler = () => {
     console.log("PlayNowHandler running")
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ wearJersey: true })
     };
    
-    const unityServer = "http://localhost:8888/avatar?avatar=5&cloth=0";
+    const unityServer = "http://127.0.0.1:8888/avatar?avatar=1&cloth=1";
    
     fetch(unityServer, requestOptions)
     .then(response => response.json())
