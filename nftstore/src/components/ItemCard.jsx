@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { ethers } from 'ethers';
 import { MintAddOnBuilder, MintParamsBuilder } from '../combo/src/params-builders';
 import { useState, useEffect } from 'react';

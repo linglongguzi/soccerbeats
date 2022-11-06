@@ -1,7 +1,86 @@
-import * as React from 'react';
+import { MintParamsBuilder } from '../combo/src/params-builders';
 import { ABI, COMBO_PROXY_ADDRESS, COLLECTION_PROXY_ADDRESS } from '../combo/src/client';
+import { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
 
 const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
+    const [address, setAddress] = useState("");
+
+    const comboHandler = async () => {
+        console.log("comboHandler triggered")
+        let mintParamsBuilder = new MintParamsBuilder();
+    
+        // Only 'buy' is required
+        const addOnFashionContract = '0xa71a5270459ff9e18d130a9497b6211304375f3d';
+        const avatarContract = '0x6ad03857DA61a9cb62DF8696ab66F82Df5F98B27';
+        const comboContract = '0x25430eef190fa85876e31fdfea823b69e378ebad';
+        const nftId = '1';
+        const count = 1;
+        const to = address;
+        const setId = 10000000;
+        const options = {value: ethers.utils.parseEther("0.00001")};
+        mintParamsBuilder.use(addOnFashionContract, nftId, count,0);
+        mintParamsBuilder.use(avatarContract, nftId, count, 0);
+        
+        let { ingredients, itemsToBuy } = mintParamsBuilder.build();
+        const { ethereum } = window;
+        const provider = new ethers.providers.Web3Provider(ethereum)
+        const signer = provider.getSigner(address);
+        const contract = new ethers.Contract(COMBO_PROXY_ADDRESS, ABI.IComboProxy, signer)
+        
+         const transactionScript = await contract.mint(
+            comboContract,
+            to,
+            true,   // true - pay in ether, false - pay in WETH
+            ingredients,
+            itemsToBuy
+        );
+    }
+
+    const getAddress = async ()=>{
+        const { ethereum } = window;
+
+        if (!ethereum) {
+            console.log("Make sure you have metamask!");
+            return;
+        }
+
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+        if (accounts.length !== 0) {
+            setAddress(accounts[0]);
+            return accounts[0];
+        } else {
+            console.log("No authorized account found");
+            return undefined;
+        }
+    }
+
+    const PlayOrCombo = ({onCombo}) => {
+        return (
+          <div class="flex justify-evenly">
+              <button 
+                  class="font-bold py-2 px-4 rounded-full play-btn"
+                  onClick={() => PlayNowHandler()}>
+                  Play now
+              </button>
+              <button 
+                  class="font-bold py-2 px-4 rounded-full mint-btn"
+                  onClick={() =>{ 
+                      onCombo(true);
+                      comboHandler();
+                  }}>
+                  Combo
+              </button>
+          </div>
+        );
+      }
+      
+
+    useEffect(() =>{
+        getAddress();
+    },[])
+
     let bottomSection;
     if(isAvatar){
         bottomSection = <PlayOrCombo onCombo={onCombo}></PlayOrCombo>
@@ -33,51 +112,6 @@ const PlayNowHandler = () => {
     .catch((err) => {console.log(err.message);});
 }
 
-const Combo = () => {
-    console.log("comboing");
-    
-
-// Make mint params
-let mintParamsBuilder = new sdk.ParamBuilders.MintParamsBuilder();
- 
-// Select 2 NFTs with ID 75 in the ERC-1155 collection
-// Note: the 2 NFTs should be owned by the minter
-mintParamsBuilder.use('0x727cB81C955e1D....dfDFe07281', 75, 2, 0);      
-  
-// Select the NFT with ID 103 in the ERC-721 collection
-// Note: the NFT should be owned by the minter
-mintParamsBuilder.use('0xF27B8D220249fb....A6a71914E2', 103, 1, 0);
-
-// Purchase & Select 5 NFTs with ID 932 in the ERC-1155 collection in the set with ID 10000000
-// Note: minter can purchase the missing required add-on NFTs while minting a combo NFT
-mintParamsBuilder.buy('0x10c01D6B0396D9....F60b9cB1F6', 932, 5, 10000000);
-
-let { ingredients, itemsToBuy } = mintParamsBuilder.build();
-ComboProxy.mint(
-    combo,
-    to,
-    true,   // true - pay in ether, false - pay in WETH
-    ingredients,
-    itemsToBuy
-);
-}
-
-const PlayOrCombo = ({onCombo}) => {
-  return (
-    <div class="flex justify-evenly">
-        <button 
-            class="font-bold py-2 px-4 rounded-full play-btn"
-            onClick={()=>PlayNowHandler()}>
-            Play now
-        </button>
-        <button 
-            class="font-bold py-2 px-4 rounded-full mint-btn"
-            onClick={()=>onCombo(true)}>
-            Combo
-        </button>
-    </div>
-  );
-}
 
 export default AssetCard;
 
