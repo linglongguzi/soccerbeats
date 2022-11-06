@@ -19,7 +19,27 @@ code {
 
 .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
   color: #333333;
-  font-weight: 500;
+  font-weight: bold;
+  font-family: SFProDisplay-Bold, SFProDisplay;
+}
+
+.nav-link {
+  margin-right: 20px;
+}
+
+.nav-link.active{
+  color: unset;
+  position: relative;
+}
+.nav-link.active::after {
+  position: absolute;
+  bottom: -12px;
+  left: calc(50% - 12px);;
+  width: 24px;
+  height: 4px;
+  background: #B635FF;
+  border-radius: 2px;
+  content: "";
 }
 
 .nga-navbar {

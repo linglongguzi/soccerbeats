@@ -37,21 +37,18 @@ class App extends React.Component {
       <div >
         <header className="navbar navbar-expand-md navbar-dark nga-navbar">
           <nav className="container" aria-label="Main navigation">
-            <NavLink className="navbar-brand" to="/">
-              <img src={logo} width="125" height="50" alt="Logo" />
-            </NavLink>
-
             <div className="navbar-collapse" id="navbarCollapse">
+              <NavLink className="navbar-brand me-auto" to="/">
+                <img src={logo} width="125" height="50" alt="Logo" />
+              </NavLink>
               <ul className="navbar-nav ">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/" style={({ isActive }) => 
-                      (isActive ? {color: 'blue'} : {color: 'black'})}>Accessories</NavLink>
+                  <NavLink className="nav-link" to="/">Accessories</NavLink>
                 </li>
               </ul>
-              <ul className="navbar-nav me-auto">
+              <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/myassets" style={({ isActive }) => 
-                      (isActive ? {color: 'blue'} : {color: 'black'})}>My Assets</NavLink>
+                  <NavLink className="nav-link" to="/myassets">My Assets</NavLink>
                 </li>
               </ul>
               <Wallet></Wallet>

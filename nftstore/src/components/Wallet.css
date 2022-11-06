@@ -4,6 +4,29 @@
     overflow: hidden;
 }
 
+.walletBtn {
+    height: 40px;
+    background: #B635FF;
+    border-radius: 12px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: SFProDisplay-Bold, SFProDisplay;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+
+.icon {
+    width: 20px;
+    margin-right: 9px;
+}
+
+.btn-bg {
+  height: 48px;
+}
+
 .image {
     object-fit: cover;
     width: 125;
@@ -11,9 +34,9 @@
 }
 
 .walletAddress {
-    font-size: 80px;
     color: white;
-    text-align: center;
+    text-align: right;
+    padding: 0 16px;
     position: absolute;
     top: 0;
     bottom: 0;

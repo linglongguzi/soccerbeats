@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import connectWalletImg from '../assets/connectWallet.png';
+import wallet2 from '../assets/wallet2.png';
 import styles from './Wallet.css';
 
 const Wallet = () => {
@@ -52,7 +53,8 @@ const Wallet = () => {
 
   // Render Methods
   const renderNotConnectedContainer = () => (
-    <button onClick={connectWallet} >
+    <button class="walletBtn" onClick={connectWallet} >
+      <img class="icon" src={wallet2} alt="wallet" />
       Connect Wallet
     </button>
   );
