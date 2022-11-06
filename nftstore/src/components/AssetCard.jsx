@@ -1,7 +1,8 @@
-import { MintParamsBuilder } from '../combo/src/params-builders';
-import { ABI, COMBO_PROXY_ADDRESS, COLLECTION_PROXY_ADDRESS } from '../combo/src/client';
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
+const MintParamsBuilder = require('../combo/src/params-builders');
+const { ABI, COMBO_PROXY_ADDRESS, COLLECTION_PROXY_ADDRESS } = require('../combo/src/client');
+
 
 const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
     const [address, setAddress] = useState("");
@@ -27,11 +28,38 @@ const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
         const provider = new ethers.providers.Web3Provider(ethereum)
         const signer = provider.getSigner(address);
         const contract = new ethers.Contract(COMBO_PROXY_ADDRESS, ABI.IComboProxy, signer)
+        const metaMesh = 
+        {
+          "code": {
+            "code": 0,
+            "message": "OK"
+          },
+          "data": {
+            "name": "",
+            "image": "https://media.1combo.io/soccerbeat/combo.jpg",
+            "external_url": "",
+            "description": "",
+            "background_color": "",
+            "animation_url": "",
+            "youtube_url": "",
+            "attributes": [
+              {
+                "trait_type": "SoccerBeat Add-ons",
+                "value": "Red Coat"
+              }
+            ]
+          },
+          "info": {
+            "hash": "f7a95e1ebeee239feff1a9fa8ec859c91973daa2b1b638db043597f94c3d9ee1",  // 这就是metaHash
+            "preview": "https://media.1combo.io/soccerbeat/combo.jpg"
+          }
+        }
         
          const transactionScript = await contract.mint(
             comboContract,
             to,
             true,   // true - pay in ether, false - pay in WETH
+            metaMesh,
             ingredients,
             itemsToBuy
         );
@@ -111,7 +139,6 @@ const PlayNowHandler = () => {
     .then(data => console.log(data))
     .catch((err) => {console.log(err.message);});
 }
-
 
 export default AssetCard;
 
