@@ -7,7 +7,7 @@ class Accessories extends React.Component {
   render() {
     return (
       <div className="container py-5">
-          <div class="grid grid-cols-4 gap-6 bg-white">
+          <div class="grid grid-cols-4 gap-6">
             <ItemCard img={clothImg}></ItemCard>
             <ItemCard img={clothImg}></ItemCard>
             <ItemCard img={clothImg}></ItemCard>
