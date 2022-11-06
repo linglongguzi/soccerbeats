@@ -13,7 +13,7 @@ const AssetCard = ({img, isAvatar=false, level=2})=>{
     return(
         <div class="container mx-auto bg-gray-200 rounded-xl shadow border p-4 m-2">
             <div class="text-grey-200 text-center mb-8 bg-slate-300 rounded-full">#231</div>
-            <img src={img} alt="jersey" class="bg-transparent"></img>
+            <div class="img" style={{height: "300px", display: "table-cell", verticalAlign: "middle"}}><img src={img} alt="jersey" class="bg-transparent"></img></div>
             <div class="my-4 text-center">Level {level}</div>
             {bottomSection}
         </div>

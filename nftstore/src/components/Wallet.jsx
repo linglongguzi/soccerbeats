@@ -68,15 +68,15 @@ const Wallet = () => {
   );
 
   const getShortAddress = (address) => (
-    `0x${getFirstNDigits(address, 3)}...${getLastNDigits(address,4)}`
+    `${getFirstNDigits(address, 4)}...${getLastNDigits(address,4)}`
   );
-
+ 
   const getFirstNDigits = (address, n) =>{
-    console.log(address.substring(n));
-    return address.substring(n);
+    console.log(address.substring(0, n));
+    return address.substring(0, n);
   }
-  const getLastNDigits = (address,n) =>{
-    return address.substring(-n);
+  const getLastNDigits = (address, n) =>{
+    return address.substring(address.length - n);
   }
 
   useEffect(() => {
