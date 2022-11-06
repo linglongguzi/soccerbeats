@@ -20,11 +20,35 @@ const AssetCard = ({img, isAvatar=false, level=2})=>{
     );
 }
 
+const PlayNowHandler = () => {
+    console.log("PlayNowHandler running")
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ wearJersey: true })
+    };
+   
+    const unityServer = "http://localhost:8000";
+   
+    fetch(unityServer, requestOptions)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((err) => {console.log(err.message);});
+}
+
 const PlayOrCombo = () => {
   return (
     <div class="flex justify-evenly">
-        <button class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full">Play now</button>
-        <button class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full">Combo</button>
+        <button 
+            class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full"
+            onClick={()=>PlayNowHandler()}>
+            Play now
+        </button>
+        <button 
+            class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full"
+            onClick={()=>alert("combo finished, starting")}>
+            Combo
+        </button>
     </div>
   );
 }
