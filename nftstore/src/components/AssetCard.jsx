@@ -1,11 +1,10 @@
 import * as React from 'react';
 import clothImg from '../assets/model4.png';
 
-const AssetCard = ({img, isAvatar=false, level=2})=>{
+const AssetCard = ({img, isAvatar=false, level=2, onCombo})=>{
     let bottomSection;
     if(isAvatar){
-        bottomSection = <PlayOrCombo></PlayOrCombo>
-        
+        bottomSection = <PlayOrCombo onCombo={onCombo}></PlayOrCombo>
     } else {
         bottomSection=<div></div>
     }
@@ -36,17 +35,17 @@ const PlayNowHandler = () => {
     .catch((err) => {console.log(err.message);});
 }
 
-const PlayOrCombo = () => {
+const PlayOrCombo = ({onCombo}) => {
   return (
     <div class="flex justify-evenly">
         <button 
-            class="bg-yellow-200 hover:bg-yellow-400 font-bold py-2 px-4 rounded-full play-btn"
+            class="font-bold py-2 px-4 rounded-full play-btn"
             onClick={()=>PlayNowHandler()}>
             Play now
         </button>
         <button 
-            class="bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full mint-btn"
-            onClick={()=>alert("combo finished, starting")}>
+            class="font-bold py-2 px-4 rounded-full mint-btn"
+            onClick={()=>onCombo(true)}>
             Combo
         </button>
     </div>

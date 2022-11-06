@@ -1,11 +1,13 @@
 import React, {useState , useEffect, Suspense} from 'react';
 import clothImg from '../../assets/model4.png';
 import girlImg from '../../assets/model3.png';
+import comboImg from '../../assets/girlWithJersey.jpeg';
 import AssetCard from '../../components/AssetCard';
 
 import './index.css';
 
 function MyAssets () {
+  const [combo, setCombo] = useState(false)
   const [currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
@@ -32,10 +34,15 @@ function MyAssets () {
 
   const renderWalletConnected = ()=> (
       <div className="container py-5">
+          {combo ? <div class="grid grid-cols-4 gap-6">
+            <AssetCard img={comboImg} isAvatar={true} onCombo={setCombo}></AssetCard>
+          </div> : 
           <div class="grid grid-cols-4 gap-6">
-            <AssetCard img={girlImg} isAvatar={true}></AssetCard>
+            <AssetCard img={girlImg} isAvatar={true} onCombo={setCombo}></AssetCard>
             <AssetCard img={clothImg}></AssetCard>
           </div>
+          }
+          
       </div>
   )
 
